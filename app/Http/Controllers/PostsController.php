@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Agent;
+use App\Area;
 
 class PostsController extends Controller
 {
@@ -22,7 +23,7 @@ class PostsController extends Controller
         }
         $posts = Post::orderBy('id', 'desc')->paginate(10);
         $agents = Agent::all();
-
+        
         return view('index',[
             'posts' => $posts,
             'agents' => $agents,
@@ -62,8 +63,11 @@ class PostsController extends Controller
     public function show($id)
     {
         $agent = Agent::findOrFail($id);
-        $posts = Post::query();
+        $Area = new Area;
+        $posts = Post::orderBy('id', 'desc');
         $posts = $posts->where('agent_id', $id)->get();
+        $areas = $agent->area()->get();
+
 
         $user = new User;
 
@@ -71,6 +75,8 @@ class PostsController extends Controller
             'agent' => $agent,
             'posts' => $posts,
             'user' => $user,
+            'areas' => $areas,
+            'Area' => $Area,
         ]);
     }
 

@@ -21,7 +21,6 @@ class CreateAgentAreasTable extends Migration
             // 外部キー制約
             $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
             $table->foreign('agent_id')->references('id')->on('agents')->onDelete('cascade');
-            $table->unique(['area_id', 'agent_id']);
         });
     }
 

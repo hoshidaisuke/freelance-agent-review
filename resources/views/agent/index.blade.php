@@ -9,7 +9,7 @@
                 <a href="/">トップ</a>
             </li>
             <li><span class="material-icons">keyboard_arrow_right</span></li>
-            <li>詳細ページ</li>
+            <li>{{ $agent->name }}の評判</li>
         </ul>
 
         @if (session('status'))
@@ -51,7 +51,13 @@
                     </tr>
                     <tr>
                         <th>対応地域</th>
-                        <td>東京・埼玉</td>
+                        <td>
+                        
+                            @foreach ($areas as $area)
+                                
+                                {{ $Area::findOrFail($area->id)->area }}
+                            @endforeach
+                        </td>
                     </tr>
                     <tr>
                         <th>特徴</th>
@@ -87,7 +93,14 @@
                     </tr>
                     <tr>
                         <th>評判</th>
-                        <td>5</td>
+                        <td>
+                            <?php $avg = round(collect($posts)->avg('review'), 1, PHP_ROUND_HALF_UP); ?> 
+                            @if($avg == 0)
+                                まだ評判がありません。
+                            @else
+                                {{ $avg }}
+                            @endif
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -102,7 +115,7 @@
                     @foreach ($posts as $post)
                     <li>
                         <h3>{{ $post->title }}</h3>     
-                        <p>{{ nl2br(e($post->content)) }}</p>     
+                        <p>{!! nl2br(e($post->content)) !!}</p>     
                         <p>
                             @switch($post->review)
                                 @case(1)
@@ -128,7 +141,7 @@
                     </li>
                     @endforeach
                 </ul>
-                <p class="center"><a href="" class="btn btn-primary">【公式】{{ $agent->name }}の無料登録はこちら</a></p>
+               <p class="center"><a href="" class="btn btn-primary">【公式】{{ $agent->name }}の無料登録はこちら</a></p>
             </div>
         </div>
     </div>

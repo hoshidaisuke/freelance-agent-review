@@ -11,8 +11,17 @@ class Agent extends Model
     /*
      * このエージェントが所有する単価
     **/
-    public function Fee()
+    public function fee()
     {
         return $this->belongsTo(Fee::class);
     }
+
+    /**
+     * このエージェントが対応する地域
+     */
+    public function area()
+    {
+        return $this->belongsToMany(Area::class, 'agent_areas', 'agent_id', 'area_id')->withTimestamps();
+    }
+    
 }
