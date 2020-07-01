@@ -11005,6 +11005,18 @@ header .bg-dark {
   }
 }
 
+.review-list > li {
+  padding: 10px;
+}
+
+.review-list > li + li {
+  border-top: 1px dashed #ccc;
+}
+
+.review-list h3 {
+  font-size: 18px;
+}
+
 .review-list p {
   font-size: 16px;
 }
@@ -11031,10 +11043,12 @@ header .bg-dark {
   margin-bottom: 30px;
 }
 
-.post-list .post {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+.agent-list .agent {
+  font-size: 18px;
+}
+
+.agent-list .review {
+  font-size: 14px;
 }
 
 .back-link {

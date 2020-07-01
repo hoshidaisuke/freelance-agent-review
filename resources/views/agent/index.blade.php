@@ -26,25 +26,28 @@
                         <th>平均単価</th>
                         <td>@switch($agent->fee_id)
                                 @case(1)
-                                    ～59万
+                                    非公開
                                     @break
                                 @case(2)
-                                    60万～
+                                    ～59万
+                                    
                                     @break
                                 @case(3)
-                                    70万～
+                                    60万～69万
                                     @break
                                 @case(4)
-                                    80万～
+                                    70万～69万
+                                    
                                     @break
                                 @case(5)
-                                    90万
+                                    80万～69万
+                                    
                                     @break
                                 @case(6)
-                                    100万～
+                                    90万～99万
                                     @break
                                 @case(7)
-                                    非公開
+                                    100万～
                                     @break
                             @endswitch
                         </td>
@@ -94,7 +97,7 @@
                     <tr>
                         <th>評判</th>
                         <td>
-                            <?php $avg = round(collect($posts)->avg('review'), 1, PHP_ROUND_HALF_UP); ?> 
+                            <?php $avg = round(collect($posts->where('agent_id', $agent->id))->avg('review'), 1, PHP_ROUND_HALF_UP); ?> 
                             @if($avg == 0)
                                 まだ評判がありません。
                             @else
@@ -134,17 +137,55 @@
                                     ★★★★★
                                     @break
                             @endswitch
-
+                            {{ $post->review }}
                         </p>
-                        <p>{{ $post->review }}</p>
-                        {{ $user::findOrFail($post->user_id)->name }}
+                        <p>{{ $user::findOrFail($post->user_id)->name }}</p>
                     </li>
                     @endforeach
                 </ul>
+                <p>{{ $posts->links() }}</p>
                <p class="center"><a href="" class="btn btn-primary">【公式】{{ $agent->name }}の無料登録はこちら</a></p>
             </div>
+
         </div>
+ 
     </div>
+<div class="col-md-8">
+@if (Auth::check())
+            <div class="card">
+                <div class="card-body">
+                    
+                    {!! Form::open(['route' => 'posts.store']) !!}
+                        <div class="form-group">
+                            {{Form::hidden('agent_id', $agent->id)}}
+                            
+                            {{ $agent->name }} の評判
+                        </div>
+                        <div class="form-group">
+                                {!! Form::label('title', 'タイトル') !!}
+                                {!! Form::text('title', '', ['class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('content', 'レビュー') !!}
+                            {!! Form::textarea('content', '', ['class' => 'form-control', 'rows' => '3' ]) !!}
+                        </div>
+                        <div class="form-group">
+                            {{Form::select('review', [
+                                '5' => '★★★★★',
+                                '4' => '★★★★',
+                                '3' => '★★★',
+                                '2' => '★★',
+                                '1' => '★',
+                            ])}}
+                        </div>
+                        {!! Form::submit('投稿', ['class' => 'btn btn-primary']) !!}
+                    {!! Form::close() !!}
+                    
+                </div>
+            </div>
+
+@endif
+</div>
 </div>
 
 

@@ -17,16 +17,53 @@ class PostsController extends Controller
      */
     public function index(Request $request)
     {
-        $sort = $request->sort;
-        if($sort === '1') {
-        } else {
+        $area_id = $request->area;
+        $feature = $request->feature;
+        $fee = $request->fee;
+        $query = Agent::query();
+
+        $posts = Post::all();
+
+
+        // エリア
+        if(isset($area_id) && $area_id !== '0') {
+            $area = Area::findOrFail($area_id);
+            $query = $area->agent();
         }
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
-        $agents = Agent::all();
-        
+
+        // 特徴
+        if(isset($feature)) {
+            for($i = 0; $i < count($feature); $i++){
+                if(!empty($feature[$i] === 'welfare')) {
+                    $query->where('welfare', '=', '1');
+                }
+                if(!empty($feature[$i] === 'remote')) {
+                    $query->where('remote', '=', '1');
+                }
+                if(!empty($feature[$i] === 'site')) {
+                    $query->where('site', '=', '1');
+                }
+                if(!empty($feature[$i] === 'highprice')) {
+                    $query->where('highprice', '=', '1');
+                }
+                if(!empty($feature[$i] === 'margin')) {
+                    $query->where('margin', '=', '1');
+                }
+            }
+        }
+                
+        // 平均単価
+        if(isset($fee)) {
+            $query->whereIn('fee_id', $fee);
+        }
+
+        $agents = $query->get();
+
+
         return view('index',[
-            'posts' => $posts,
             'agents' => $agents,
+            'area_id' => $area_id,
+            'posts' => $posts,
         ]);
     }
 
@@ -40,7 +77,7 @@ class PostsController extends Controller
     {
         $request->validate([
             'title' => 'required|max:50',    
-            'content' => 'required|max:255',    
+            'content' => 'required|max:510',    
         ]);
         $agents = new Agent;
         $agent = $agents::where('name', $request->agent_id)->first();
@@ -65,7 +102,7 @@ class PostsController extends Controller
         $agent = Agent::findOrFail($id);
         $Area = new Area;
         $posts = Post::orderBy('id', 'desc');
-        $posts = $posts->where('agent_id', $id)->get();
+        $posts = $posts->where('agent_id', $id)->paginate(5);
         $areas = $agent->area()->get();
 
 

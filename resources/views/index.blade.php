@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="main-image">
-    <p>フリーランスの評判サイト</p>
+    <p>フリーランスエージェントの評判サイト</p>
     <p>フリレビ</p>
 </div>
 @if (Auth::check())
@@ -81,6 +81,7 @@
                 <div class="form-group">
                     
                     {{Form::select('area', [
+                        '選択してください',
                         '北海道',
                         '青森県',
                         '岩手県',
@@ -128,46 +129,49 @@
                         '宮崎県',
                         '鹿児島',
                         '沖縄県',
-                    ], )}}
+                    ], $area_id)}}
                 </div>
                 特徴
                 <div class="form-group">
+                    
+                    {{Form::checkbox('feature[]', 'welfare', (isset($_GET['feature'])) ? in_array('welfare', $_GET['feature']) : false, array('id'=>'welfare'))}}
                     {!! Form::label('welfare', '福利厚生がある') !!}
-                    {{Form::checkbox('welfare', '1')}}
-                    
-                    {!! Form::label('remote', '週3・リモート') !!}
-                    {{Form::checkbox('remote', '2')}}
-                    
-                    {!! Form::label('site', '支払いサイトが30日以内') !!}
-                    {{Form::checkbox('site', '3')}}
-                    
-                    {!! Form::label('highprice', '高単価') !!}
-                    {{Form::checkbox('highprice', '4')}}                    
 
+                    {{Form::checkbox('feature[]', 'remote', (isset($_GET['feature'])) ? in_array('remote', $_GET['feature']) : false, array('id'=>'remote'))}}
+                    {!! Form::label('remote', '週3・リモート') !!}
+                    
+                    {{Form::checkbox('feature[]', 'site', (isset($_GET['feature'])) ? in_array('site', $_GET['feature']) : false, array('id'=>'site'))}}
+                    {!! Form::label('site', '支払いサイトが30日以内') !!}
+                    
+                    {{Form::checkbox('feature[]', 'highprice', (isset($_GET['feature'])) ? in_array('highprice', $_GET['feature']) : false, array('id'=>'highprice'))}}                
+                    {!! Form::label('highprice', '高単価') !!}
+
+                    {{Form::checkbox('feature[]', 'margin', (isset($_GET['feature'])) ? in_array('margin', $_GET['feature']) : false, array('id'=>'margin'))}}
                     {!! Form::label('margin', 'マージン公開') !!}
-                    {{Form::checkbox('margin', '5')}}
                     
                 </div>
                 平均単価
                 <div class="form-group">
-                    
-                    {!! Form::label('remote', '～59万') !!}
-                    {{Form::checkbox('remote', '2')}}
+                    {{Form::checkbox('fee[]', '1', (isset($_GET['fee'])) ? in_array(1, $_GET['fee']) : false, array('id'=>'非公開'))}}
+                    {!! Form::label('非公開', '非公開') !!}
 
-                    {!! Form::label('site', '60-69万') !!}
-                    {{Form::checkbox('site', '3')}}
-                    
-                    {!! Form::label('site', '70-79万') !!}
-                    {{Form::checkbox('site', '3')}}
-                    
-                    {!! Form::label('highprice', '80-89万') !!}
-                    {{Form::checkbox('highprice', '4')}}                    
+                    {{Form::checkbox('fee[]', '2', (isset($_GET['fee'])) ? in_array(2, $_GET['fee']) : false, array('id'=>'50'))}}
+                    {!! Form::label('50', '～59万') !!}
 
-                    {!! Form::label('margin', '90-99万') !!}
-                    {{Form::checkbox('margin', '5')}}
+                    {{Form::checkbox('fee[]', '3', (isset($_GET['fee'])) ? in_array(3, $_GET['fee']) : false, array('id'=>'60'))}}
+                    {!! Form::label('60', '60-69万') !!}
+                    
+                    {{Form::checkbox('fee[]', '4', (isset($_GET['fee'])) ? in_array(4, $_GET['fee']) : false, array('id'=>'70'))}}
+                    {!! Form::label('70', '70-79万') !!}
+                    
+                    {{Form::checkbox('fee[]', '5', (isset($_GET['fee'])) ? in_array(5, $_GET['fee']) : false, array('id'=>'80'))}}                   
+                    {!! Form::label('80', '80-89万') !!}
 
-                    {!! Form::label('margin', '100万～') !!}
-                    {{Form::checkbox('margin', '5')}}
+                    {{Form::checkbox('fee[]', '6', (isset($_GET['fee'])) ? in_array(6, $_GET['fee']) : false, array('id'=>'90'))}}
+                    {!! Form::label('90', '90-99万') !!}
+
+                    {{Form::checkbox('fee[]', '7', (isset($_GET['fee'])) ? in_array(7, $_GET['fee']) : false, array('id'=>'100'))}}
+                    {!! Form::label('100', '100万～') !!}
 
                 </div>
                 {!! Form::submit('検索', ['class' => 'btn btn-primary']) !!}
@@ -186,18 +190,41 @@
                 </div>
                     
                 {!! Form::close() !!}                
-                <ul class="post-list">
+                <ul class="agent-list">
                     @foreach($agents as $agent)
                         <li>
                             <a href="{{ route('agent.index', ['id' => $agent->id]) }}">
-                                
-                                {{ $agent->name }}
+                                <?php $avg = round(collect($posts->where('agent_id', $agent->id))->avg('review'), 1, PHP_ROUND_HALF_UP); ?> 
+                                        
+                                <p class="agent">{{ $agent->name }}（{{ $posts->where('agent_id', $agent->id)->count() }}）</p>
+                                @if($avg == 0)
+                                <p class="review">まだ評判がありません。</p>
+                                @else
+                                <p class="review">
+                                @switch($avg)
+                                    @case(1 <= $avg && $avg < 2)
+                                        ★☆☆☆☆
+                                        @break
+                                    @case(2 <= $avg && $avg < 3)
+                                        ★★☆☆☆
+                                        @break
+                                    @case(3 <= $avg && $avg < 4)
+                                        ★★★☆☆
+                                        @break
+                                    @case(4 <= $avg && $avg < 5)
+                                        ★★★★☆
+                                        @break
+                                    @case(5)
+                                        ★★★★★
+                                        @break
+                                @endswitch
+                                </p>
+                                @endif
                             </a>
                         </li>
                     @endforeach
                 </ul>
                 {{-- ページネーションのリンク --}}
-                {{ $posts->links() }}
             </div>
         </div>
 
