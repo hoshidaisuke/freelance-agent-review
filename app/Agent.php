@@ -23,5 +23,12 @@ class Agent extends Model
     {
         return $this->belongsToMany(Area::class, 'agent_areas', 'agent_id', 'area_id')->withTimestamps();
     }
-    
+
+    /**
+     * このエージェントが所有する投稿
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

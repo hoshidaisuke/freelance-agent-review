@@ -23,7 +23,9 @@ class PostsController extends Controller
         $query = Agent::query();
 
         $posts = Post::all();
-
+        $areas = Area::all();
+        
+        $sort = $request->sort;
 
         // エリア
         if(isset($area_id) && $area_id !== '0') {
@@ -57,13 +59,21 @@ class PostsController extends Controller
             $query->whereIn('fee_id', $fee);
         }
 
-        $agents = $query->get();
-
-
+        // 並べ替え
+        if($sort === '1') { // 評判が高い
+            $agents = $query->orderBy('avg', 'desc')->get();       
+        } elseif($sort === '2') { // レビュー数が多い
+            $agents = $query->withCount('posts')->orderBy('posts_count', 'desc')->get();
+        } else {
+            $agents = $query->orderBy('avg', 'desc')->get();
+        }
+        
         return view('index',[
             'agents' => $agents,
             'area_id' => $area_id,
             'posts' => $posts,
+            'sort' => $sort,
+            'areas' => $areas,
         ]);
     }
 
@@ -80,7 +90,22 @@ class PostsController extends Controller
             'content' => 'required|max:510',    
         ]);
         $agents = new Agent;
-        $agent = $agents::where('name', $request->agent_id)->first();
+
+        $posts = Post::all();
+
+        $agents = Post::where('agent_id', $request->agent_id)->get();
+
+        $count = count($agents);
+        $sum = round(collect($posts->where('agent_id', $request->agent_id))->sum('review'), 1, PHP_ROUND_HALF_UP);
+        
+
+        $agent = Agent::findOrFail($request->agent_id);
+        // 平均レビュー値を更新
+        $avg = rtrim(rtrim(($request->review + $sum) / ($count + 1),'0'),'.');
+
+        $agent->avg = $avg;
+        $agent->save();
+
         $request->user()->posts()->create([
             'title' => $request->title,
             'content' => $request->content,

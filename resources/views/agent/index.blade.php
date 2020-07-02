@@ -20,8 +20,8 @@
 
         <div class="card">
             <div class="card-body">
-                <h2>{{ $agent->name }}の評判</h2>
-                <table>
+                <h2>{{ $agent->name }}</h2>
+                <table class="agent-table">
                     <tr>
                         <th>平均単価</th>
                         <td>@switch($agent->fee_id)
@@ -108,13 +108,15 @@
                 </table>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-8">
         <div class="card">
             <div class="card-body">
-        
-                <ul class="review-list">
+                <h2>{{ $agent->name }}の評判</h2>
+                
+
+                    <ul class="review-list">
+
+                    @if($avg !== 0.0)
                     @foreach ($posts as $post)
                     <li>
                         <h3>{{ $post->title }}</h3>     
@@ -138,20 +140,27 @@
                                     @break
                             @endswitch
                             {{ $post->review }}
+                            
                         </p>
                         <p>{{ $user::findOrFail($post->user_id)->name }}</p>
+
                     </li>
                     @endforeach
-                </ul>
+                    @else
+                    <li>               
+                        <p>まだ評判がありません。</p>
+                    </li>
+                    @endif
+                </ul>            
+
                 <p>{{ $posts->links() }}</p>
                <p class="center"><a href="" class="btn btn-primary">【公式】{{ $agent->name }}の無料登録はこちら</a></p>
             </div>
 
         </div>
  
-    </div>
-<div class="col-md-8">
-@if (Auth::check())
+
+        @if (Auth::check())
             <div class="card">
                 <div class="card-body">
                     
@@ -170,6 +179,7 @@
                             {!! Form::textarea('content', '', ['class' => 'form-control', 'rows' => '3' ]) !!}
                         </div>
                         <div class="form-group">
+                            <div>{!! Form::label('review', '評価') !!}</div>
                             {{Form::select('review', [
                                 '5' => '★★★★★',
                                 '4' => '★★★★',
@@ -178,14 +188,16 @@
                                 '1' => '★',
                             ])}}
                         </div>
-                        {!! Form::submit('投稿', ['class' => 'btn btn-primary']) !!}
+                        <div class="form-group center">
+                        {!! Form::submit('投稿', ['class' => 'btn btn-primary w-50']) !!}
+                        </div>
                     {!! Form::close() !!}
                     
                 </div>
             </div>
 
-@endif
-</div>
+        @endif
+    </div>
 </div>
 
 

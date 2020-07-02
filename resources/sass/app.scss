@@ -9,6 +9,7 @@
 
 body {
     font-family: "Sawarabi Gothic";
+    background: $subColor;
 }
 html {
     min-height: 100vh;
@@ -16,7 +17,12 @@ html {
     padding-bottom: 75px; 
 }
 a {
-    color: #5384a2;
+    color: $mainColor;
+    transition: .3s;
+    &:hover {
+        color: $subColor;
+        text-decoration: none;
+    }
 }
 ul {
     list-style: none;
@@ -40,10 +46,16 @@ select {
     vertical-align: middle;
 }
 header .bg-dark{
-    background-color: #8ba6b7!important;
+    background-color: $mainColor;
+    .navbar-brand {
+        color: $subColor;
+    }
 }
 .navbar-dark .navbar-nav .nav-link {
-    color: #fff!important;
+    color: $subColor;
+    &:hover {
+        color: #fff;
+    }
 }
 .dropdown-item {
     padding: 0;
@@ -67,6 +79,15 @@ header .bg-dark{
         }
     }
 }
+.card {
+    margin-top: 20px;
+}
+.card-body {
+    .label {
+        font-size: 18px;
+    }
+}
+
 .review-list {
     > li {
         padding: 10px;
@@ -100,11 +121,33 @@ header .bg-dark{
     margin-bottom: 30px;
 }
 .agent-list {
-    .agent {
-        font-size: 18px;
+    font-size: 18px;
+    padding-left: 30px;
+    li {
+        margin-bottom: 40px;
+    }
+    .quantity {
+        font-size: 14px;
     }
     .review {
         font-size: 14px;
+    }
+}
+.card-body {
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+.agent-table {
+    th {
+        white-space: nowrap;
+    }
+    th, td {
+        padding: 10px;
+    }
+    td {
+        padding-left: 40px;
     }
 }
 .back-link {
@@ -114,6 +157,10 @@ header .bg-dark{
 .breadcrumb {
     background: none;
     padding: 0;
+    a:hover {
+        color: #000;
+        text-decoration: underline;
+    }
 }
 .material-icons {
     vertical-align: middle;
@@ -155,16 +202,24 @@ header .bg-dark{
     }
 }
 
+.form-group.center {
+    text-align: center;
+}
 
-
-.btn-primary:hover {
-    background-color: #5f99d8;
-    border-color: #0062cc;
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+{
+    opacity: .7;
+    color: #fff;
+    background-color: $btnColor;
+    border-color: $btnColor;
 }
 .btn-primary {
     color: #fff;
-    background-color: #7bb5d8;
-    border-color: #6286ad;
+    background-color: $btnColor;
+    border-color: $btnColor;
+    transition: .3s;
 }
 
 .micro-copy {
@@ -183,12 +238,12 @@ header .bg-dark{
         margin-left: 20px;
     }
     a {
-        color: #fff;
+        color: $subColor;
     }
 }
 footer {
-    background-color: #8ba6b7;
-    color: #fff;
+    background-color: $mainColor;
+    color: $subColor;
     text-align: center;
     position: absolute;
     bottom: 0;
