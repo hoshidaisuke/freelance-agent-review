@@ -121,22 +121,22 @@
                     <li>
                         <h3>{{ $post->title }}</h3>     
                         <p>{!! nl2br(e($post->content)) !!}</p>     
-                        <p>
+                        <p class="review">
                             @switch($post->review)
                                 @case(1)
-                                    ★☆☆☆☆
+                                    <span>★☆☆☆☆</span>
                                     @break
                                 @case(2)
-                                    ★★☆☆☆
+                                    <span>★★☆☆☆</span>
                                     @break
                                 @case(3)
-                                    ★★★☆☆
+                                    <span>★★★☆☆</span>
                                     @break
                                 @case(4)
-                                    ★★★★☆
+                                    <span>★★★★☆</span>
                                     @break
                                 @case(5)
-                                    ★★★★★
+                                    <span>★★★★★</span>
                                     @break
                             @endswitch
                             {{ $post->review }}

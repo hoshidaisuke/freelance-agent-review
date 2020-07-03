@@ -135,8 +135,9 @@
         <div class="card">
             <div class="card-body">
 
-                <p>@if(isset($area_id) && $area_id !== '0' || isset($_GET['feature']) || isset($_GET['fee']))
-                    検索結果【
+                @if(isset($area_id) && $area_id !== '0' || isset($_GET['feature']) || isset($_GET['fee']) || isset($_GET['sort']))
+                    <h2>フリーランスエージェントランキング</h2>
+                    <p class="result">検索結果【
                         @if(isset($area_id) && $area_id !== '0')
                             @foreach($areas as $area)
                                 @if ($loop->first)
@@ -186,17 +187,26 @@
                                 100万～
                             @endif
                         @endif
-                        】のエージェント
+                        @if(isset($_GET['sort']))
+                            @if($sort === '1')
+                            評価が高い順
+                            @else
+                            レビュー数が多い順
+                            @endif
+                        @endif
+                        】</p>
+                    @else
+                        <h2>フリーランスエージェントランキング</h2>            
                     @endif
                 </p>
 
                 <ol class="agent-list">
-                    @foreach($agents as $agent)
+                    @foreach($agents as $index => $agent)
                         <li>
                             <a href="{{ route('agent.index', ['id' => $agent->id]) }}">
                                 <?php $avg = round(collect($posts->where('agent_id', $agent->id))->avg('review'), 1, PHP_ROUND_HALF_UP); ?> 
                                         
-                                <p class="agent">{{ $agent->name }}</p>
+                                <p class="agent">{{ $index + 1 }}位.{{ $agent->name }}</p>
                                 <p class="quantity">レビュー数：{{ $posts->where('agent_id', $agent->id)->count() }}
                                 @if($avg == 0)
                                 <p class="review">まだ評判がありません。</p>
@@ -204,23 +214,24 @@
                                 <p class="review">
                                 @switch($avg)
                                     @case(1 <= $avg && $avg < 2)
-                                        評判：★☆☆☆☆
+                                        評判：<span>★☆☆☆☆</span>
                                         @break
                                     @case(2 <= $avg && $avg < 3)
-                                        評判：★★☆☆☆
+                                        評判：<span>★★☆☆☆</span>
                                         @break
                                     @case(3 <= $avg && $avg < 4)
-                                        評判：★★★☆☆
+                                        評判：<span>★★★☆☆</span>
                                         @break
                                     @case(4 <= $avg && $avg < 5)
-                                        評判：★★★★☆
+                                        評判：<span>★★★★☆</span>
                                         @break
                                     @case(5)
-                                        評判：★★★★★
+                                        評判：<span>★★★★★</span>
                                         @break
                                 @endswitch
                                 </p>
                                 @endif
+                                <p class="more"><span class="material-icons">keyboard_arrow_right</span>{{ $agent->name }}の評判を見る</p>
                             </a>
                         </li>
                     @endforeach

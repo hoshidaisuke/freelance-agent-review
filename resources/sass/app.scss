@@ -10,6 +10,7 @@
 body {
     font-family: "Sawarabi Gothic";
     background: $subColor;
+    line-height: 1.6;
 }
 html {
     min-height: 100vh;
@@ -35,11 +36,12 @@ img {
 .main-image {
     text-align: center;
 }
-.sort {
-    text-align: right;
-}
 h2 {
     font-size: 26px;
+    font-weight: bold;
+    @media screen and (max-width: 834px) {
+        font-size: 18px;
+    }
 }
 select {
     padding: 5px 0;
@@ -90,7 +92,7 @@ header .bg-dark{
 
 .review-list {
     > li {
-        padding: 10px;
+        padding: 10px 0;
         + li {
             border-top: 1px dashed #ccc;
         }
@@ -101,13 +103,19 @@ header .bg-dark{
     p {
         font-size: 16px;
     }
+    .review span {
+        color: $btnColor;
+    }
 }
 .tag-list {
     display: flex;
+    flex-wrap: wrap;
+    margin-top: -20px;
     li {
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 5px;
+        margin-top: 20px;
         + li {
             margin-left: 10px;
         }
@@ -116,28 +124,44 @@ header .bg-dark{
 
 .center {
     text-align: center;
+    margin-top: 40px;
 }
 .col-md-8 {
     margin-bottom: 30px;
 }
 .agent-list {
     font-size: 18px;
-    padding-left: 30px;
+    padding-left: 0;
+    list-style: none;
     li {
-        margin-bottom: 40px;
+        list-style: none;
+        margin-bottom: 0;
+        padding: 20px 0;
+        border-top: 1px dashed #ccc;
     }
     .quantity {
         font-size: 14px;
     }
     .review {
         font-size: 14px;
+        span {
+            color: $btnColor;
+        }
+    }
+    .more {
+        text-align: right;
+        font-size: 16px;
     }
 }
 .card-body {
     h2 {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
+}
+.result {
+    background: #ccc;
+    padding: 5px 10px;
 }
 .agent-table {
     th {
@@ -166,9 +190,9 @@ header .bg-dark{
     vertical-align: middle;
     margin-top: -6px;
 }
-.row.justify-content-center {
-    margin-bottom: 20px;
-}
+label + input {
+    margin-left: 10px;
+} 
 
 .card-body > .post > li {
     padding: 10px 0;
@@ -204,6 +228,7 @@ header .bg-dark{
 
 .form-group.center {
     text-align: center;
+    margin-top: 40px;
 }
 
 .btn-primary:hover,
