@@ -10967,6 +10967,7 @@ img {
 h2 {
   font-size: 26px;
   font-weight: bold;
+  line-height: 1.6;
 }
 
 @media screen and (max-width: 834px) {
@@ -11151,8 +11152,9 @@ header .bg-dark .navbar-brand {
   margin-top: -6px;
 }
 
-label + input {
-  margin-left: 10px;
+.form-group-parts {
+  margin-right: 10px;
+  white-space: nowrap;
 }
 
 .card-body > .post > li {

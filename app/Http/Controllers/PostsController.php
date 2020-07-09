@@ -87,7 +87,8 @@ class PostsController extends Controller
     {
         $request->validate([
             'title' => 'required|max:50',    
-            'content' => 'required|max:510',    
+            'content' => 'required|max:500',
+            'review' => 'not_in: 0'
         ]);
         $agents = new Agent;
 

@@ -154,7 +154,7 @@
                 </ul>            
 
                 <p>{{ $posts->links() }}</p>
-               <p class="center"><a href="" class="btn btn-primary">【公式】{{ $agent->name }}の無料登録はこちら</a></p>
+               <p class="center"><a href="{{ $agent->link }}" class="btn btn-primary">【公式】{{ $agent->name }}の無料登録はこちら</a></p>
             </div>
 
         </div>
@@ -181,6 +181,7 @@
                         <div class="form-group">
                             <div>{!! Form::label('review', '評価') !!}</div>
                             {{Form::select('review', [
+                                '0' => '選択してください',
                                 '5' => '★★★★★',
                                 '4' => '★★★★',
                                 '3' => '★★★',

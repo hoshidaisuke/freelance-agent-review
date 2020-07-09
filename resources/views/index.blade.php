@@ -77,46 +77,57 @@
                     </div>
                     <p class="label">特徴</p>
                     <div class="form-group">
-                        
-                        {{Form::checkbox('feature[]', 'welfare', (isset($_GET['feature'])) ? in_array('welfare', $_GET['feature']) : false, array('id'=>'welfare'))}}
-                        {!! Form::label('welfare', '福利厚生がある') !!}
-    
-                        {{Form::checkbox('feature[]', 'remote', (isset($_GET['feature'])) ? in_array('remote', $_GET['feature']) : false, array('id'=>'remote'))}}
-                        {!! Form::label('remote', '週3・リモート') !!}
-                        
-                        {{Form::checkbox('feature[]', 'site', (isset($_GET['feature'])) ? in_array('site', $_GET['feature']) : false, array('id'=>'site'))}}
-                        {!! Form::label('site', '支払いサイトが30日以内') !!}
-                        
-                        {{Form::checkbox('feature[]', 'highprice', (isset($_GET['feature'])) ? in_array('highprice', $_GET['feature']) : false, array('id'=>'highprice'))}}                
-                        {!! Form::label('highprice', '高単価') !!}
-    
-                        {{Form::checkbox('feature[]', 'margin', (isset($_GET['feature'])) ? in_array('margin', $_GET['feature']) : false, array('id'=>'margin'))}}
-                        {!! Form::label('margin', 'マージン公開') !!}
-                        
+                        <span class="form-group-parts">
+                            {{Form::checkbox('feature[]', 'welfare', (isset($_GET['feature'])) ? in_array('welfare', $_GET['feature']) : false, array('id'=>'welfare'))}}
+                            {!! Form::label('welfare', '福利厚生がある') !!}
+                        </span>
+                        <span class="form-group-parts">
+                            {{Form::checkbox('feature[]', 'remote', (isset($_GET['feature'])) ? in_array('remote', $_GET['feature']) : false, array('id'=>'remote'))}}
+                            {!! Form::label('remote', '週3・リモート') !!}
+                        </span>
+                        <span class="form-group-parts">
+                            {{Form::checkbox('feature[]', 'site', (isset($_GET['feature'])) ? in_array('site', $_GET['feature']) : false, array('id'=>'site'))}}
+                            {!! Form::label('site', '支払いサイトが30日以内') !!}
+                        </span>
+                        <span class="form-group-parts">
+                            {{Form::checkbox('feature[]', 'highprice', (isset($_GET['feature'])) ? in_array('highprice', $_GET['feature']) : false, array('id'=>'highprice'))}}                
+                            {!! Form::label('highprice', '高単価') !!}
+                        </span>
+                        <span class="form-group-parts">
+                            {{Form::checkbox('feature[]', 'margin', (isset($_GET['feature'])) ? in_array('margin', $_GET['feature']) : false, array('id'=>'margin'))}}
+                            {!! Form::label('margin', 'マージン公開') !!}
+                        </span>
                     </div>
                     <p class="label">平均単価</p>
                     <div class="form-group">
+                        <span class="form-group-parts">
                         {{Form::checkbox('fee[]', '1', (isset($_GET['fee'])) ? in_array(1, $_GET['fee']) : false, array('id'=>'非公開'))}}
                         {!! Form::label('非公開', '非公開') !!}
-    
+                        </span>
+                        <span class="form-group-parts">
                         {{Form::checkbox('fee[]', '2', (isset($_GET['fee'])) ? in_array(2, $_GET['fee']) : false, array('id'=>'50'))}}
                         {!! Form::label('50', '～59万') !!}
-    
+                        </span>
+                        <span class="form-group-parts">
                         {{Form::checkbox('fee[]', '3', (isset($_GET['fee'])) ? in_array(3, $_GET['fee']) : false, array('id'=>'60'))}}
                         {!! Form::label('60', '60-69万') !!}
-                        
+                        </span>
+                        <span class="form-group-parts">
                         {{Form::checkbox('fee[]', '4', (isset($_GET['fee'])) ? in_array(4, $_GET['fee']) : false, array('id'=>'70'))}}
                         {!! Form::label('70', '70-79万') !!}
-                        
+                        </span>
+                        <span class="form-group-parts">
                         {{Form::checkbox('fee[]', '5', (isset($_GET['fee'])) ? in_array(5, $_GET['fee']) : false, array('id'=>'80'))}}                   
                         {!! Form::label('80', '80-89万') !!}
-    
+                        </span>
+                        <span class="form-group-parts">
                         {{Form::checkbox('fee[]', '6', (isset($_GET['fee'])) ? in_array(6, $_GET['fee']) : false, array('id'=>'90'))}}
                         {!! Form::label('90', '90-99万') !!}
-    
+                        </span>
+                        <span class="form-group-parts">
                         {{Form::checkbox('fee[]', '7', (isset($_GET['fee'])) ? in_array(7, $_GET['fee']) : false, array('id'=>'100'))}}
                         {!! Form::label('100', '100万～') !!}
-    
+                        </span>
                     </div>
                     <p class="label">並べ替え</p>
                     <div class="form-group">
@@ -280,6 +291,7 @@
                     <div class="form-group">
                         <div>{!! Form::label('review', '評価') !!}</div>
                         {{Form::select('review', [
+                            '0' => '選択してください',
                             '5' => '★★★★★',
                             '4' => '★★★★',
                             '3' => '★★★',
@@ -298,10 +310,10 @@
         @endif
 
         <ul class="snsbtniti2">
-            <li><a href="https://twitter.com/intent/tweet?text=%E5%AF%9D%E8%A8%80%E3%82%92%E6%8A%95%E7%A8%BF%E3%81%99%E3%82%8B%E3%82%B5%E3%82%A4%E3%83%88%E3%80%8C%E3%81%AD%E3%81%94%E3%81%A8%E3%81%AE%E3%83%BC%E3%81%A8%E3%80%8D%0D%0A=https://negoto-note.herokuapp.com/" class="flowbtn12 fl_tw2"
+            <li><a href="https://twitter.com/intent/tweet?text=%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A9%95%E5%88%A4%E3%82%B5%E3%82%A4%E3%83%88%E3%80%8C%E3%83%95%E3%83%AA%E3%83%AC%E3%83%93%E3%80%8D%0D%0Ahttps%3A%2F%2Ffuri-rebi.com" target="_blank" class="flowbtn12 fl_tw2"
             ><i class="fab fa-twitter"></i><span>Twitter</span></a></li>
-            <li><a href="//timeline.line.me/social-plugin/share?url=https://negoto-note.herokuapp.com/" class="flowbtn12 fl_li2"><i class="fab fa-line"></i><span>LINE</span></a></li>
-            <li><a href="http://b.hatena.ne.jp/add?mode=confirm&url=https://negoto-note.herokuapp.com/" class="flowbtn12 fl_hb2"><i class="fas fa-bold"></i><span>Hatena</span></a></li>
+            <li><a href="//timeline.line.me/social-plugin/share?url=https://furi-rebi.com" class="flowbtn12 fl_li2"><i class="fab fa-line"></i><span>LINE</span></a></li>
+            <li><a href="http://b.hatena.ne.jp/add?mode=confirm&url=https://furi-rebi.com" class="flowbtn12 fl_hb2"><i class="fas fa-bold"></i><span>Hatena</span></a></li>
         </ul>
     </div>
 </div>
