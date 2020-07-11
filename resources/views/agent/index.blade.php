@@ -204,7 +204,11 @@
 <div class="row justify-content-center">
     
     <div class="col-md-8 back-link">
-        <p><a href="/agent/{{ $agent->id + 1 }}"><span class="material-icons">keyboard_arrow_right</span>{{ $agent::findOrFail($agent->id + 1)->name }}</a></p>
+        @if ($agent::where('id', $agent->id + 1)->exists())
+        <p><a href="/agent/{{ $agent->id + 1 }}"><span class="material-icons">keyboard_arrow_right</span>{{ $agent::findOrFail($agent->id + 1)->name }}の評判はこちら</a></p>
+        @else
+        <p><a href="/agent/1"><span class="material-icons">keyboard_arrow_right</span>{{ $agent::findOrFail(1)->name }}の評判はこちら</a></p>
+        @endif
         <p><a href="/"><span class="material-icons">keyboard_arrow_right</span>TOPに戻る</a></p>
     </div>
 </div>
