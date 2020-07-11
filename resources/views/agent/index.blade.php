@@ -11,7 +11,6 @@
             <li><span class="material-icons">keyboard_arrow_right</span></li>
             <li>{{ $agent->name }}の評判</li>
         </ul>
-
         @if (session('status'))
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
@@ -172,11 +171,11 @@
                         </div>
                         <div class="form-group">
                                 {!! Form::label('title', 'タイトル') !!}
-                                {!! Form::text('title', '', ['class' => 'form-control']) !!}
+                                {!! Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'とても親切でした！']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('content', 'レビュー') !!}
-                            {!! Form::textarea('content', '', ['class' => 'form-control', 'rows' => '3' ]) !!}
+                            {!! Form::textarea('content', '', ['class' => 'form-control', 'rows' => '5', 'placeholder' => '良かったところ・改善点など' ]) !!}
                         </div>
                         <div class="form-group">
                             <div>{!! Form::label('review', '評価') !!}</div>
@@ -203,8 +202,10 @@
 
 
 <div class="row justify-content-center">
+    
     <div class="col-md-8 back-link">
-        <a href="/"><span class="material-icons">keyboard_arrow_right</span>TOPに戻る</a>
+        <p><a href="/agent/{{ $agent->id + 1 }}"><span class="material-icons">keyboard_arrow_right</span>{{ $agent::findOrFail($agent->id + 1)->name }}</a></p>
+        <p><a href="/"><span class="material-icons">keyboard_arrow_right</span>TOPに戻る</a></p>
     </div>
 </div>
 

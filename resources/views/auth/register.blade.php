@@ -10,8 +10,8 @@
 
             {!! Form::open(['route' => 'signup.post']) !!}
                 <div class="form-group">
-                    {!! Form::label('name', 'ニックネーム') !!}
-                    {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+                    {!! Form::label('name', 'あなたの職種') !!}
+                    {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'サーバーサイドエンジニア']) !!}
                 </div>
 
                 <div class="form-group">

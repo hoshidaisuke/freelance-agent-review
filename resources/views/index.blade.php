@@ -7,8 +7,65 @@
 </div>
 
 <div class="row justify-content-center">
-   
+
     <div class="col-md-8">
+        @if (Auth::check())
+        <div class="card">
+            <div class="card-body">
+                
+                {!! Form::open(['route' => 'posts.store']) !!}
+                    <div class="form-group">
+                        {{Form::select('agent_id', [
+                            '1' => 'レバテックフリーランス',
+                            '2' => 'ギークスジョブ',
+                            '3' => 'Midworks',
+                            '4' => 'フューチャリズム',
+                            '5' => 'Pe-BANK',
+                            '6' => 'DYMテック',
+                            '7' => 'tech tree',
+                            '8' => 'テクフリ',
+                            '9' => 'エンジニアルート',
+                            '10' => 'High-Performer ITエンジニア',
+                            '11' => 'High-Performer コンサル',
+                            '12' => 'BTCエージェントforエンジニア',
+                            '13' => 'BTCエージェントforエンジニア',
+                            '14' => 'ITプロパートナーズ',
+                            '15' => 'ポテパンフリーランス',
+                            '16' => 'クラウドテック',
+                            '17' => 'エンジニアファクトリー',
+                            '18' => '1 on 1 Freelance',
+                            '19' => 'フォスターフリーランス',
+                            '20' => 'エミリーエンジニア',
+                        ])}} の評判
+                    </div>
+                    <div class="form-group">
+                            {!! Form::label('title', 'タイトル') !!}
+                            {!! Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'とても親切でした！']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('content', 'レビュー') !!}
+                        {!! Form::textarea('content', '', ['class' => 'form-control', 'rows' => '5', 'placeholder' => '良かったところ・改善点など' ]) !!}
+                    </div>
+                    <div class="form-group">
+                        <div>{!! Form::label('review', '評価') !!}</div>
+                        {{Form::select('review', [
+                            '0' => '選択してください',
+                            '5' => '★★★★★',
+                            '4' => '★★★★',
+                            '3' => '★★★',
+                            '2' => '★★',
+                            '1' => '★',
+                        ])}}
+                    </div>
+                    <div class="form-group center">
+                    {!! Form::submit('投稿', ['class' => 'btn btn-primary w-50']) !!}
+                    </div>
+                {!! Form::close() !!}
+                
+            </div>
+        </div>
+
+        @endif
         <div class="card">
             <div class="card-body">
                 @if (session('status'))
@@ -250,64 +307,6 @@
                 {{-- ページネーションのリンク --}}
             </div>
         </div>
-
-        @if (Auth::check())
-        <div class="card">
-            <div class="card-body">
-                
-                {!! Form::open(['route' => 'posts.store']) !!}
-                    <div class="form-group">
-                        {{Form::select('agent_id', [
-                            '1' => 'レバテックフリーランス',
-                            '2' => 'ギークスジョブ',
-                            '3' => 'Midworks',
-                            '4' => 'フューチャリズム',
-                            '5' => 'Pe-BANK',
-                            '6' => 'DYMテック',
-                            '7' => 'tech tree',
-                            '8' => 'テクフリ',
-                            '9' => 'エンジニアルート',
-                            '10' => 'High-Performer ITエンジニア',
-                            '11' => 'High-Performer コンサル',
-                            '12' => 'BTCエージェントforエンジニア',
-                            '13' => 'BTCエージェントforエンジニア',
-                            '14' => 'ITプロパートナーズ',
-                            '15' => 'ポテパンフリーランス',
-                            '16' => 'クラウドテック',
-                            '17' => 'エンジニアファクトリー',
-                            '18' => '1 on 1 Freelance',
-                            '19' => 'フォスターフリーランス',
-                            '20' => 'エミリーエンジニア',
-                        ])}} の評判
-                    </div>
-                    <div class="form-group">
-                            {!! Form::label('title', 'タイトル') !!}
-                            {!! Form::text('title', '', ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('content', 'レビュー') !!}
-                        {!! Form::textarea('content', '', ['class' => 'form-control', 'rows' => '3' ]) !!}
-                    </div>
-                    <div class="form-group">
-                        <div>{!! Form::label('review', '評価') !!}</div>
-                        {{Form::select('review', [
-                            '0' => '選択してください',
-                            '5' => '★★★★★',
-                            '4' => '★★★★',
-                            '3' => '★★★',
-                            '2' => '★★',
-                            '1' => '★',
-                        ])}}
-                    </div>
-                    <div class="form-group center">
-                    {!! Form::submit('投稿', ['class' => 'btn btn-primary w-50']) !!}
-                    </div>
-                {!! Form::close() !!}
-                
-            </div>
-        </div>
-
-        @endif
 
         <ul class="snsbtniti2">
             <li><a href="https://twitter.com/intent/tweet?text=%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A9%95%E5%88%A4%E3%82%B5%E3%82%A4%E3%83%88%E3%80%8C%E3%83%95%E3%83%AA%E3%83%AC%E3%83%93%E3%80%8D%0D%0Ahttps%3A%2F%2Ffuri-rebi.com" target="_blank" class="flowbtn12 fl_tw2"
