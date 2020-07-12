@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>フリーランスエージェントの評判サイト「フリレビ」</title>
+        <meta name="description" content="フリーランスエージェントの評判サイト「フリレビ」フリーランスエージェントの評判・口コミの投稿・閲覧ができます。">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
