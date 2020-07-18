@@ -19,6 +19,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌15日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=2ZWAM9+4POO1M+2JK4+1TJTPD',
         ]);
@@ -30,6 +31,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌25日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=2ZWDRA+VK3P6+2OGI+674EP',
         ]);
@@ -41,6 +43,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => true,
+            'siteday' => '月末締め翌20日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=2TRCLG+92V0NU+3TVC+BXYE9',
         ]);
@@ -52,6 +55,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌15日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35JY3N+555XRU+3Y9Y+BWVTE',
         ]);
@@ -63,6 +67,7 @@ class AgentsTableSeeder extends Seeder
             'site' => false,
             'highprice' => false,
             'margin' => true,
+            'siteday' => '月末締め翌40日～',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=2TRCLG+9CE1FE+3SLI+60H7M',
         ]);
@@ -74,6 +79,7 @@ class AgentsTableSeeder extends Seeder
             'site' => false,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌60日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35U3WC+679OHM+3EI0+TRVYQ',
         ]);
@@ -85,6 +91,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => true,
             'margin' => false,
+            'siteday' => '月末締め翌3日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35JWJC+9GJZKQ+4B0A+5ZU2A',
         ]);
@@ -96,6 +103,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌月末',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35JWJC+9GJZKQ+4B0A+5ZU2A',
         ]);
@@ -107,6 +115,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌月末',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35D2L0+E1H58A+46GE+5YRHE',
         ]);
@@ -118,6 +127,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => true,
             'margin' => false,
+            'siteday' => '月末締め翌15日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35JWJC+9GJZKQ+4B0A+5ZU2A',
         ]);
@@ -129,6 +139,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => true,
             'margin' => false,
+            'siteday' => '月末締め翌15日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=3B9Q89+691ZAY+3T80+BWVTE',
         ]);
@@ -140,6 +151,7 @@ class AgentsTableSeeder extends Seeder
             'site' => false,
             'highprice' => true,
             'margin' => false,
+            'siteday' => '月末締め翌45日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35F6JW+21TVNE+45VU+BWVTE',
         ]);
@@ -151,6 +163,7 @@ class AgentsTableSeeder extends Seeder
             'site' => false,
             'highprice' => true,
             'margin' => false,
+            'siteday' => '月末締め翌45日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35O7NK+4EDFJU+45VU+5YJRM',
         ]);
@@ -162,6 +175,7 @@ class AgentsTableSeeder extends Seeder
             'site' => false,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌35日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35UO7F+6J6CL6+40EC+60WN6',
         ]);
@@ -173,6 +187,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌月末または45日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35UO7F+6J6CL6+40EC+60WN6',
         ]);
@@ -184,6 +199,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌15日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35UO7F+6J6CL6+40EC+60WN6',
         ]);
@@ -195,6 +211,7 @@ class AgentsTableSeeder extends Seeder
             'site' => false,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌60日',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35UO7F+6J6CL6+40EC+60WN6',
         ]);
@@ -206,6 +223,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => true,
+            'siteday' => '月末締め翌月末',
             'avg' => '0.0',
             'link' => 'https://tr.slvrbullet.com/cl/w0000114522/11741/4095/',
         ]);
@@ -217,6 +235,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌月末',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=2ZVXB2+89OV3U+45OW+5YRHE',
         ]);
@@ -228,6 +247,7 @@ class AgentsTableSeeder extends Seeder
             'site' => true,
             'highprice' => false,
             'margin' => false,
+            'siteday' => '月末締め翌月末',
             'avg' => '0.0',
             'link' => 'https://px.a8.net/svt/ejp?a8mat=35D2L0+E0VPMI+4754+5YRHE',
         ]);

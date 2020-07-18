@@ -11034,11 +11034,11 @@ header .bg-dark .navbar-brand {
 }
 
 .review-list > li {
-  padding: 10px 0;
+  padding: 20px 0 10px;
 }
 
 .review-list > li + li {
-  border-top: 1px dashed #ccc;
+  border-top: 3px solid #ddd;
 }
 
 .review-list h3 {
@@ -11116,8 +11116,13 @@ header .bg-dark .navbar-brand {
   margin-bottom: 40px;
 }
 
+.card-body h2:not(.top) {
+  border-bottom: 5px solid #ddd;
+  padding: 10px 0;
+}
+
 .result {
-  background: #ccc;
+  background: #eee;
   padding: 5px 10px;
 }
 

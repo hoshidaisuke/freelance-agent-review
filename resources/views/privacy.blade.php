@@ -65,7 +65,7 @@
 <p>第９条（お問い合わせ窓口）</p>
 <p>本ポリシーに関するお問い合わせは，下記の窓口までお願いいたします。</p>
 
-<p><a href="https://twitter.com/funclur_01">お問い合わせ</a></p>
+<p><a href="https://twitter.com/7Zgo35lfbazSsWh">お問い合わせ</a></p>
 
 <p>アクセス解析ツールについて</p>
 <p>当サイトはアクセス解析ツールGoogle Analyticsを利用しトラフィックデータ収集のためにCookie（クッキー）を使用しています。</p> <p>この情報は匿名で収集され、個人を特定するものではありません。</p> <p>Cookieを無効にすることでこのトラフィックデータ収集を拒否することが出来ますので、拒否したい場合はお使いのブラウザの設定を変更してください。</p> <p>詳しくは<a href="https://policies.google.com/technologies/partner-sites?hl=ja">こちら</a>をご確認ください。</p>

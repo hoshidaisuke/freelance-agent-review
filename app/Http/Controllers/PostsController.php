@@ -68,10 +68,13 @@ class PostsController extends Controller
             $agents = $query->orderBy('avg', 'desc')->get();
         }
         
+        $postsAll = Post::all();
+
         return view('index',[
             'agents' => $agents,
             'area_id' => $area_id,
             'posts' => $posts,
+            'postsAll' => $postsAll,
             'sort' => $sort,
             'areas' => $areas,
         ]);
@@ -133,10 +136,12 @@ class PostsController extends Controller
 
 
         $user = new User;
+        $postsAll = Post::all();
 
         return view('agent.index',[
             'agent' => $agent,
             'posts' => $posts,
+            'postsAll' => $postsAll,
             'user' => $user,
             'areas' => $areas,
             'Area' => $Area,

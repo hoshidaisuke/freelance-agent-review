@@ -93,9 +93,9 @@ header .bg-dark{
 
 .review-list {
     > li {
-        padding: 10px 0;
+        padding: 20px 0 10px;
         + li {
-            border-top: 1px dashed #ccc;
+            border-top: 3px solid #ddd;
         }
     }
     h3 {
@@ -160,10 +160,14 @@ header .bg-dark{
     h2 {
         text-align: center;
         margin-bottom: 40px;
+        &:not(.top) {
+            border-bottom: 5px solid #ddd;
+            padding: 10px 0;
+        }
     }
 }
 .result {
-    background: #ccc;
+    background: #eee;
     padding: 5px 10px;
 }
 .agent-table {

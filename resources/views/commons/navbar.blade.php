@@ -10,6 +10,7 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
+                    <li class="nav-item"><div class="nav-link"><a href="https://twitter.com/7Zgo35lfbazSsWh" class="nav-link" target="_blank">お問い合わせ</a></div></li>
                 @if (Auth::check())
                     {{-- ユーザ一覧ページへのリンク --}}
                     

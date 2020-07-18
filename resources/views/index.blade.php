@@ -204,7 +204,7 @@
             <div class="card-body">
 
                 @if(isset($area_id) && $area_id !== '0' || isset($_GET['feature']) || isset($_GET['fee']) || isset($_GET['sort']))
-                    <h2>フリーランスエージェントランキング</h2>
+                    <h2 class="top">フリーランスエージェントランキング</h2>
                     <p class="result">検索結果【
                         @if(isset($area_id) && $area_id !== '0')
                             @foreach($areas as $area)
@@ -264,7 +264,7 @@
                         @endif
                         】</p>
                     @else
-                        <h2>フリーランスエージェントランキング</h2>            
+                        <h2 class="top">フリーランスエージェントランキング</h2>            
                     @endif
                 </p>
 
