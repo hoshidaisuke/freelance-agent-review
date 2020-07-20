@@ -11126,10 +11126,6 @@ header .bg-dark .navbar-brand {
   padding: 5px 10px;
 }
 
-.agent-table th {
-  white-space: nowrap;
-}
-
 .agent-table th,
 .agent-table td {
   padding: 10px;
@@ -11152,6 +11148,10 @@ header .bg-dark .navbar-brand {
 .breadcrumb {
   background: none;
   padding: 0;
+}
+
+.breadcrumb a {
+  white-space: nowrap;
 }
 
 .breadcrumb a:hover {

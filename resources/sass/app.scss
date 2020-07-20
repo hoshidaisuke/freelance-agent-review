@@ -171,9 +171,6 @@ header .bg-dark{
     padding: 5px 10px;
 }
 .agent-table {
-    th {
-        white-space: nowrap;
-    }
     th, td {
         padding: 10px;
     }
@@ -192,9 +189,12 @@ header .bg-dark{
 .breadcrumb {
     background: none;
     padding: 0;
-    a:hover {
-        color: #000;
-        text-decoration: underline;
+    a {
+        white-space: nowrap;
+        &:hover {
+            color: #000;
+            text-decoration: underline;
+        }
     }
 }
 .material-icons {

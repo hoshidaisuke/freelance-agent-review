@@ -17,8 +17,8 @@
                     <li class="nav-item"><div class="nav-link"><a href="{{ route('logout.get') }}" class="nav-link">ログアウト</a></div></li>
                 @else
                     {{-- ユーザ登録ページへのリンク --}}
-                    <li class="nav-item"><a href="{{ route('signup.get') }}" class="nav-link">新規登録</a></li>
-                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">ログイン</a></li>
+                    <li class="nav-item"><div class="nav-link"><a href="{{ route('signup.get') }}" class="nav-link">新規登録</a></div></li>
+                    <li class="nav-item"><div class="nav-link"><a href="{{ route('login') }}" class="nav-link">ログイン</a></div></li>
                     {{-- ログインページへのリンク --}}
 
                 @endif
