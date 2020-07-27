@@ -147,7 +147,7 @@
                             {{ $post->review }}
                             
                         </p>
-                        <p>{{ $user::findOrFail($post->user_id)->name }}</p>
+                        <!--<p>{{ $user::findOrFail($post->user_id)->name }}</p>-->
 
                     </li>
                     @endforeach

@@ -2,7 +2,11 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>評判数{{ $postsAll->count() }}件!! フリーランスエージェントの評判サイト「フリレビ」</title>
+        <title>@if ($postsAll->count() === 'https://furi-rebi.com')
+評判数{{ $postsAll->count() }}件!! フリーランスエージェントの評判サイト「フリレビ」
+@else
+フリーランスエージェントの評判サイト「フリレビ」
+@endif</title>
         <meta name="description" content="フリーランスエージェントの評判サイト「フリレビ」フリーランスエージェントの評判・口コミの投稿・閲覧ができます。">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
