@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <title>@if ($postsAll->count() === 'https://furi-rebi.com')
+        <title>@if (request()->fullUrl() === 'https://furi-rebi.com')
 評判数{{ $postsAll->count() }}件!! フリーランスエージェントの評判サイト「フリレビ」
 @else
 フリーランスエージェントの評判サイト「フリレビ」
