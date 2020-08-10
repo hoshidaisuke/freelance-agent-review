@@ -11061,6 +11061,13 @@ header .bg-dark .navbar-brand {
   margin-top: -20px;
 }
 
+@media screen and (max-width: 834px) {
+  .tag-list {
+    display: block;
+    margin-top: 0;
+  }
+}
+
 .tag-list li {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -11070,6 +11077,24 @@ header .bg-dark .navbar-brand {
 
 .tag-list li + li {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 834px) {
+  .tag-list li {
+    margin-top: 5px;
+    padding-left: 0;
+    border: none;
+  }
+
+  .tag-list li span {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+  }
+
+  .tag-list li + li {
+    margin-left: 0;
+  }
 }
 
 .center {
@@ -11087,7 +11112,7 @@ header .bg-dark .navbar-brand {
   list-style: none;
 }
 
-.agent-list li {
+.agent-list > li {
   list-style: none;
   margin-bottom: 0;
   padding: 20px 0;
@@ -11102,6 +11127,10 @@ header .bg-dark .navbar-brand {
   font-size: 14px;
 }
 
+.agent-list .review.no-review {
+  margin-top: 20px;
+}
+
 .agent-list .review span {
   color: #f23500;
 }
@@ -11109,6 +11138,16 @@ header .bg-dark .navbar-brand {
 .agent-list .more {
   text-align: right;
   font-size: 16px;
+}
+
+.material-icons.check {
+  color: #ffd200;
+  margin-right: 7px;
+  font-size: 19px;
+}
+
+.quantity {
+  display: flex;
 }
 
 .card-body h2 {
@@ -11133,6 +11172,22 @@ header .bg-dark .navbar-brand {
 
 .agent-table td {
   padding-left: 40px;
+}
+
+@media screen and (max-width: 834px) {
+  .agent-table td {
+    padding-left: 0;
+  }
+}
+
+.agent-table br {
+  display: none;
+}
+
+@media screen and (max-width: 834px) {
+  .agent-table br {
+    display: block;
+  }
 }
 
 .back-link {

@@ -275,9 +275,41 @@
                                 <?php $avg = round(collect($posts->where('agent_id', $agent->id))->avg('review'), 1, PHP_ROUND_HALF_UP); ?> 
                                         
                                 <p class="agent">{{ $index + 1 }}位.{{ $agent->name }}</p>
-                                <p class="quantity">レビュー数：{{ $posts->where('agent_id', $agent->id)->count() }}
+                                @if ($agent->welfare || $agent->remote || $agent->highprice || $agent->site || $agent->margin)
+                                    <div class="quantity">
+                                        <span>特徴：</span>
+                                        <ul>
+                                        
+                                            @if ($agent->welfare)
+                                                <li><span class="material-icons check">done_outline</span>福利厚生</li> 
+                                            @endif
+                                           
+                                        
+                                            @if ($agent->remote)
+                                                <li><span class="material-icons check">done_outline</span>週3・リモート</li>
+                                            @endif
+                                           
+                                       
+                                            @if ($agent->highprice)
+                                                <li><span class="material-icons check">done_outline</span>高単価</li> 
+                                            @endif
+                                           
+                                        
+                                            @if ($agent->site)
+                                                <li><span class="material-icons check">done_outline</span>支払い単価30日以内</li>
+                                            @endif
+                                        
+                                        
+                                            @if ($agent->margin)
+                                                <li><span class="material-icons check">done_outline</span>マージン公開</li>
+                                            @endif
+                                        
+                                        </ul>
+                                    </div>
+                                @endif
+                                <!--<p class="quantity">レビュー数：{{ $posts->where('agent_id', $agent->id)->count() }}-->
                                 @if($avg == 0)
-                                <p class="review">まだ評判がありません。</p>
+                                <p class="review no-review">まだ評判がありません。</p>
                                 @else
                                 <p class="review">
                                 @switch($avg)

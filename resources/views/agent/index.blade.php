@@ -67,34 +67,34 @@
                             <ul class="tag-list">
                                 
                                     @if ($agent->welfare)
-                                        <li>福利厚生</li> 
+                                        <li><span>福利厚生</span></li> 
                                     @endif
                                    
                                 
                                     @if ($agent->remote)
-                                        <li>週3・リモート</li>
+                                        <li><span>週3・リモート</span></li>
                                     @endif
                                    
                                
                                     @if ($agent->highprice)
-                                        <li>高単価</li> 
+                                        <li><span>高単価</span></li> 
                                     @endif
                                    
                                 
                                     @if ($agent->site)
-                                        <li>支払い単価30日以内</li>
+                                        <li><span>支払い単価30日以内</span></li>
                                     @endif
                                 
                                 
                                     @if ($agent->margin)
-                                        <li>マージン公開</li>
+                                        <li><span>マージン公開</span></li>
                                     @endif
                                 
                             </ul>
                         </td>
                     </tr>
                     <tr>
-                        <th>支払いサイト（支払日）</th>
+                        <th>支払いサイト<br>（支払日）</th>
                         <td>
                             {{ $agent->siteday }}
                         </td>
